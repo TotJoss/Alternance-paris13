@@ -7,16 +7,16 @@ table {
 }
 /* Zebra striping */
 tr:nth-of-type(odd) {
-        background: #eee;
+        background: #87CEEB;
 }
 th {
-        background: #333;
+        background: #C0C0C0;
         color: white;
         font-weight: bold;
 }
 td, th {
         padding: 6px;
-        border: 1px solid #ccc;
+        border: 1px solid white;
         text-align: left;
 }
 
@@ -36,7 +36,7 @@ and also iPads specifically.
 */
 @media
 only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+(min-device-width: 320px) and (max-device-width: 1000px)  {
 
         /* Force table to not be like tables anymore */
         table, thead, tbody, th, td, tr {
@@ -94,7 +94,10 @@ only screen and (max-width: 760px),
 		td:nth-of-type(14):before { content: "statut"; }
 		
 		
-		#sidebar{
+		#sidebar {
+		display: none;
+		}
+		p {
 		display: none;
 		}
 }
