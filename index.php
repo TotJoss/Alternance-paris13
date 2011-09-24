@@ -4,7 +4,6 @@ require 'connecte.php';
 $reponse = $bdd->query('SELECT * FROM `eleve`');
 $repTab = $reponse->fetchAll();
 
-echo "<h1>élèves</h3>\n";
 
 echo"<p>pour afficher/supprimer uhne colonne, clqiuez sur son nom dans la liste</p>";
 
