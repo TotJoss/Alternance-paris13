@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("ul li:first-child").toggle(function() {
+    $("ul li:nth-child(1)").toggle(function() {
 	 $(".id").addClass("hide");
 	}, function() {
 	 $(".id").removeClass('hide');
