@@ -6,15 +6,15 @@ $(document).ready(function() {
 });
 
 $("ul li:nth-child(2)").toggle(function() {
-	 $(".civilité").addClass("hide");
+	 $(".civilitÃ©").addClass("hide");
 	}, function() {
-	 $(".civilité").removeClass('hide');
+	 $(".civilitÃ©").removeClass('hide');
 });
 
 $("ul li:nth-child(3)").toggle(function() {
-	 $(".prénom").addClass("hide");
+	 $(".prÃ©nom").addClass("hide");
 	}, function() {
-	 $(".prénom").removeClass('hide');
+	 $(".prÃ©nom").removeClass('hide');
 });
 
 $("ul li:nth-child(4)").toggle(function() {
@@ -42,9 +42,9 @@ $("ul li:nth-child(7)").toggle(function() {
 });
 
 $("ul li:nth-child(8)").toggle(function() {
-	 $(".nationalité").addClass("hide");
+	 $(".nationalitÃ©").addClass("hide");
 	}, function() {
-	 $(".nationalité").removeClass('hide');
+	 $(".nationalitÃ©").removeClass('hide');
 });
 
 $("ul li:nth-child(9)").toggle(function() {
@@ -66,9 +66,9 @@ $("ul li:nth-child(11)").toggle(function() {
 });
 
 $("ul li:nth-child(12)").toggle(function() {
-	 $(".téléphone").addClass("hide");
+	 $(".tÃ©lÃ©phone").addClass("hide");
 	}, function() {
-	 $(".téléphone").removeClass('hide');
+	 $(".tÃ©lÃ©phone").removeClass('hide');
 });
 
 $("ul li:nth-child(13)").toggle(function() {
