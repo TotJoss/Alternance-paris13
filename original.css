@@ -1,25 +1,23 @@
+/*
+Generic Styling, for Desktops/Laptops
+*/
 table {
-border: medium solid #6495ed;
-border-collapse: collapse;
-width: 50%;
+        width: 100%;
+        border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+        background: #eee;
 }
 th {
-font-family: monospace;
-border: thin solid #6495ed;
-width: 50%;
-padding: 5px;
-background-color: #D0E3FA;
+        background: #333;
+        color: white;
+        font-weight: bold;
 }
-td {
-font-family: sans-serif;
-border: thin solid #6495ed;
-width: 50%;
-padding: 5px;
-text-align: center;
-background-color: #ffffff;
-}
-caption {
-font-family: sans-serif;
+td, th {
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: left;
 }
 
 .hide{
@@ -29,5 +27,75 @@ display: none;
 #sidebar {
 float:left;
 width:200px;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr {
+                display: block;
+        }
+		
+		th{
+	display: none;
+	}
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+        }
+
+        tr { border: 1px solid #ccc; }
+
+        td {
+                /* Behave  like a "row" */
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+        }
+
+        td:before {
+                /* Now like a table header */
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+        }
+
+        /*
+        Label the data
+        */
+        td:nth-of-type(1):before { content: "id"; }
+        td:nth-of-type(2):before { content: "civilité"; }
+        td:nth-of-type(3):before { content: "prénom"; }
+        td:nth-of-type(4):before { content: "nom"; }
+        td:nth-of-type(5):before { content: "date de naissance"; }
+        td:nth-of-type(6):before { content: "enterprise"; }
+        td:nth-of-type(7):before { content: "divers"; }
+        td:nth-of-type(8):before { content: "nationalité"; }
+        td:nth-of-type(9):before { content: "rue"; }
+        td:nth-of-type(10):before { content: "ville"; }
+		td:nth-of-type(11):before { content: "code postal"; }
+		td:nth-of-type(12):before { content: "telephone"; }
+		td:nth-of-type(13):before { content: "mail"; }
+		td:nth-of-type(14):before { content: "statut"; }
+		
+		
+		#sidebar{
+		display: none;
+		}
 }
 
