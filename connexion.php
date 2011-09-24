@@ -6,7 +6,7 @@ $mdp  = $_POST['mdp'];
 function connecte($pseudo, $password){
 	try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=collection', 'root', '');
+		$bdd = new PDO('mysql:host=mysql51-37.perso;dbname=collection', 'supersonkswi', 'hacking4');
 		
 	}
 	catch(Exception $e)
