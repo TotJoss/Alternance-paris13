@@ -1,0 +1,24 @@
+#search
+{
+	height: 160px ;
+	color: #FFF;
+	background-color: #999 ;
+}
+#search h1,table
+{
+	position: absolute ;
+	left: 80px ;
+}
+#search h1
+{
+	height: 0px ;
+}
+#search td
+{
+	border-collapse: collapse ;
+}
+
+.search_div
+{
+	height: 120px ;
+}

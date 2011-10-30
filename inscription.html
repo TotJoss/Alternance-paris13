@@ -1,29 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+
+<html>
 <head>
-	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset=UTF-8-->
-	<meta http-equiv="Content-Script-Type" content="text/javascript; charset=UTF-8" />
 
 	<title>Formulaire d'inscription</title>
-<!--  <script type="text/javascript" src=''>-->
-	</script>
 
 </head>
+
 <body>
-<h1> Informations requises</h1>
+<h1> Formulaire d'inscription</h1>
+<h2> Informations requises</h2>
+
 <form method="post" action="inscription.php" id='formSaisie'>
 	<fieldset id="inscription">
 		<legend>Tout les champs sont obligatoires</legend>
-		pseudo:<input type="text" name="nom"/></br>
-		mail:<input type="text" name="mail"/></br>
-		Mot de passe :<input type="text" name="mdp"/>	</br>
-		Mot de passe (confirmation)*:<input type="text" name="mdpCheck"/></br>
-			</select>
+		pseudo:<input type="text" name="nom"/><br />
+		mail:<input type="text" name="mail"/><br />
+		Mot de passe :<input type="password" name="password1"/>	<br />
+		Mot de passe (confirmation)*:<input type="password" name="password2"/><br />
+		<p>type de newsletter</p>
+		<INPUT type= "radio" name="mailtype" value="html" >html
+		<INPUT type= "radio" name="mailtype" value="text" checked> text
 	</fieldset>
 
-	<p><input type="submit" name="boutonSoumet" value='valider les infos'  />
-    <input type="reset" name="boutonSoumet" value='reset'/></p>
+	<p>
+	<input type="submit" name="boutonSoumet" value='valider les infos'  />
+    <input type="reset" name="boutonSoumet" value='reset'/>
+	</p>
 
-</form>
+	</form>
 </body>
+
 </html>

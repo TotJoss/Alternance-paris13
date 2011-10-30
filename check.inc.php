@@ -1,18 +1,20 @@
 <?php
+
 function VerifierAdresseMail($adresse){ 
-	try
-	{
-		$bdd = new PDO('mysql:host=localhost;dbname=collection', 'root', '');
-		
-	}
-	catch(Exception $e)
-	{
-	        die('Erreur : '.$e->getMessage());
-	}
+	$hostname = 'localhost';
+	$username = 'root';
+	$password = '';
+
+try {
+$bdd = new PDO("mysql:host=$hostname;dbname=alternance", $username, $password);
+}
+catch(PDOException $e) {
+echo $e->getMessage();
+}
 
    $Syntaxe='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#'; 
    if(preg_match($Syntaxe,$adresse)) {
-   	$query = $bdd->query("SELECT mail FROM `collection`.`users` WHERE mail = '$adresse'");
+   	$query = $bdd->prepare("SELECT mail FROM `alternance.utilisateur`.`utilisateur` WHERE mail = '$adresse'");
 	$nb = $query->rowCount(); 
 	if($nb>1){
 		echo"mails déjà utilisé</br>";
@@ -35,7 +37,7 @@ function VerifierAdresseMail($adresse){
 function verifierPseudo($name){
 	try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=collection', 'root', '');
+		$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
 		
 	}
 	catch(Exception $e)
@@ -55,8 +57,9 @@ function verifierPseudo($name){
 				
    else {
 
-   	//verifie que pseudo et mail ne sont pas déja pris
-	$query = $bdd->query("SELECT pseudo FROM `collection`.`users` WHERE pseudo = '$name'");
+   	//verifie que pseudo n'est pas déja pris
+	$query = $bdd->prepare("SELECT pseudo FROM `alternance`.`utilisateur` WHERE pseudo = '$name'");
+	$query->execute();
 	$count = $query->rowCount(); 
 
 	if($count>1){
@@ -70,7 +73,6 @@ function verifierPseudo($name){
 	}
   	 
  }
-
 	
      
 }
@@ -86,21 +88,10 @@ function verifierMdp($password, $passwordCheck){
 	}
 }
 
-function mailInscription($adresse,$name){
-	  // Le message
-     $message = "Bonjour $name\nMerci de votre inscription à MIB collector \n";
-
-     // Dans le cas où nos lignes comportent plus de 70 caractères, nous les coupons en utilisant wordwrap()
-     $message = wordwrap($message, 70);
-
-     // Envoi du mail
-     mail('$adresse', 'inscription MIB collector', $message);
-}
-
 function insererBd(){
 		try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=collection', 'root', '');
+		$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
 		
 	}
 	catch(Exception $e)
@@ -108,14 +99,14 @@ function insererBd(){
 	        die('Erreur : '.$e->getMessage());
 	}
 
-
-	/*insertion dans users*/
-	$reqParam1='INSERT INTO `collection`.`users` VALUES (:pseudo, :mail, :pass);';
+	/*insertion dans utilisateur*/
+	$reqParam1='INSERT INTO `alternance`.`utilisateur` VALUES (NULL, :login, :mail, :pass, :statut);';
 	$stmt1 = $bdd->prepare($reqParam1);
-	$stmt1 -> bindValue(':pseudo',$_POST['nom']);	
+	$stmt1 -> bindValue(':login',$_POST['nom']);	
 	$stmt1 -> bindValue(':mail',$_POST['mail']);
-	$pass=sha1($mdp  = $_POST['mdp']);
+	$pass=sha1($mdp  = $_POST['password1']);
 	$stmt1 -> bindValue(':pass',$pass);
+	$stmt1 -> bindValue(':statut',$_POST['statut']);
 	$stmt1->execute();
 }
 ?>
