@@ -1,7 +1,4 @@
 <?php
-require 'connecte.php';
-echo "<h2 id='titre'>$cat</h2>\n";
-
 echo '<table class="table1"><tr>
 <th class="civilité">civilité</th>
 <th class="prénom">prénom</th>
