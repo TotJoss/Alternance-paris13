@@ -1,12 +1,10 @@
 <?php
 
 function VerifierAdresseMail($adresse){ 
-	$hostname = 'localhost';
-	$username = 'root';
-	$password = '';
+	
 
 try {
-$bdd = new PDO("mysql:host=$hostname;dbname=alternance", $username, $password);
+	require 'connect.php';
 }
 catch(PDOException $e) {
 echo $e->getMessage();
@@ -14,7 +12,7 @@ echo $e->getMessage();
 
    $Syntaxe='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#'; 
    if(preg_match($Syntaxe,$adresse)) {
-   	$query = $bdd->prepare("SELECT mail FROM `alternance.utilisateur`.`utilisateur` WHERE mail = '$adresse'");
+   	$query = $bdd->prepare("SELECT mail FROM `alternance.utilisateur` WHERE mail = '$adresse'");
 	$nb = $query->rowCount(); 
 	if($nb>1){
 		echo"mails déjà utilisé</br>";
@@ -37,7 +35,7 @@ echo $e->getMessage();
 function verifierPseudo($name){
 	try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
+		require 'connect.php';
 		
 	}
 	catch(Exception $e)
@@ -91,7 +89,7 @@ function verifierMdp($password, $passwordCheck){
 function insererBd(){
 		try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
+		require 'connect.php'
 		
 	}
 	catch(Exception $e)

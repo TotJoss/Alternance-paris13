@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 require_once "header.html";
 include('check.inc.php');
@@ -9,12 +9,10 @@ $mdpCheck = $_POST['password2'];
 $statut = $_POST['statut'];
 
 
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
+
 
 try {
-$bdd = new PDO("mysql:host=$hostname;dbname=web", $username, $password);
+require 'connect.php';
 }
 catch(PDOException $e) {
 echo $e->getMessage();
@@ -26,7 +24,7 @@ $passwordValide=verifierMdp($mdp, $mdpCheck);
 
 if($mdpValide==true && $mailValide==true && $passwordValide==true){
 	insererBd($mail,$pseudo,$mdp,$statut);
-	echo "<SCRIPT language=\"Javascript\"> alert(\'Inscription confirmé\')</SCRIPT> ";
+	echo "<SCRIPT language=\"Javascript\"> alert(\'Inscription confirme\')</SCRIPT> ";
 	
 }
 else{

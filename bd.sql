@@ -10,7 +10,7 @@
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Base de données: `Alternance`
+-- Base de données: `supersonkswi`
 --
 
 -- --------------------------------------------------------
