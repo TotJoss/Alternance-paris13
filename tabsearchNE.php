@@ -1,7 +1,16 @@
 <?php
 function IDTsearch(){
 	$idt='\'%'.$_GET['idt'].'%\'';
-	$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');	
+	
+	
+	
+	if (empty($_GET['idt']))
+	{
+	echo '<SCRIPT language=\"Javascript\"> alert(\'Il faut rentrer une valeur(\'VIDE\')</SCRIPT> ';
+	}
+	
+	else{
+	require 'connect.php';
 	$reponse = $bdd->query("SELECT * FROM entreprise WHERE `nom` like $idt ");
 	$repTab = $reponse->fetchAll();
 	if (empty($repTab))
@@ -10,7 +19,7 @@ function IDTsearch(){
 	}
 
 	foreach ($repTab as $valTab)
-{	
+		{	
 	echo "
 	<tr>
 	<td>$valTab[nom]</td>
@@ -23,7 +32,8 @@ function IDTsearch(){
 	</tr>";
 
 
-}
+		}
+	}
 }
 IDTsearch();
 

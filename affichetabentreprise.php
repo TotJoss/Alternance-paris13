@@ -1,6 +1,4 @@
 <?php
-require 'connecte.php';
-
 $cat='entreprise';
 
 

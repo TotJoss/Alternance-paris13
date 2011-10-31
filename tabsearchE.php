@@ -1,11 +1,17 @@
 <?php
 
-require 'connecte.php';
-
 function dptsearch(){
+
 	$dpt='\'%'.$_GET['dpt'].'%\'';
-	$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
 	
+	if (empty($_GET['dpt']))
+	{
+	echo '<SCRIPT language=\"Javascript\"> Il faut rentrer une valeur(\'VIDE\')</SCRIPT> ';
+	}
+	
+	else {
+	
+	require 'connect.php';
 	$reponse = $bdd->query("SELECT * FROM entreprise WHERE `codepostal` like $dpt ");
 	$repTab = $reponse->fetchAll();
 	if (empty($repTab))
@@ -13,12 +19,8 @@ function dptsearch(){
 	echo '<SCRIPT language=\"Javascript\"> alert(\'aucune entreprise trouvé \')</SCRIPT> ';
 	}
 	
-	
-
-
-
 	foreach ($repTab as $valTab)
-{	
+		{	
 	echo "
 	<tr>
 	<td>$valTab[nom]</td>
@@ -31,8 +33,8 @@ function dptsearch(){
 	</tr>";
 
 
-}
-}
+		}
+	}
 
 
 

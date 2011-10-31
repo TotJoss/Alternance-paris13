@@ -5,12 +5,12 @@ function dptsearch(){
 	
 	if (empty($_GET['dpt']))
 	{
-	echo '<SCRIPT language=\"Javascript\"> Il faut rentrer une valeur(\'VIDE\')</SCRIPT> ';
+	echo '<SCRIPT language=\"Javascript\"> alert(\'il faut rentrer une valeur\')</SCRIPT> ';
 	}
 	
 	else{
 	
-	$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
+	require 'connect.php';
 	$reponse = $bdd->query("SELECT * FROM etudiant WHERE `codepostal` like $dpt ");
 	$repTab = $reponse->fetchAll();
 	if (empty($repTab))

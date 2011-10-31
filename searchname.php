@@ -3,7 +3,13 @@
 function dptsearch(){
 	$name='\'%'.$_GET['name'].'%\'';
 	
-	$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
+	if (empty($_GET['name']))
+	{
+	echo '<SCRIPT language=\"Javascript\"> alert(\'Vous n\'avez rien entré\')</SCRIPT> ';
+	}
+	
+	else{
+	require 'connect.php';
 	$rep = $bdd->query("SELECT * FROM etudiant WHERE `nom` like $name ");
 	$rep = $rep->fetchAll();
 	if (empty($rep))
@@ -13,7 +19,7 @@ function dptsearch(){
 	
 	else {
 	foreach ($rep as $valTab)
-{	
+		{	
 	echo "
 	<tr class='ligne'>
 	<td>$valTab[civilite]</td>
@@ -34,9 +40,11 @@ function dptsearch(){
 	</tr>";
 
 
-}
-}
+		}
+	}
 
+	}
+	
 }
 dptsearch();
 ?>
