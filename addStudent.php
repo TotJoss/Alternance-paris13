@@ -15,25 +15,17 @@ echo '<form method="post" action="upload.php" id="formSaisie">
 			rue:<input type="text" name="rue"/>	<br />
 			code postal :<input type="text" name="cp"/>	<br />
 			ville:<input type="text" name="ville"/>	<br />
-			date de naissance:<input type="text" name="birth"/>	<br />
-			observations:<textarea name="observation"></textarea><br />
-			
-		
-		
-		
-			<!-- On limite le fichier à 1Mo -->
-			<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-			Fichier : <input type="file" name="cv">
+			date de naissance (aaaa-mm-jj):<input type="text" name="birth"/>	<br />
+			observations:<textarea name="observation"></textarea><br />.
+			<p>
+			<input type="submit" name="boutonSoumet" value="valider les infos"  />
+			<input type="reset" name="boutonSoumet" value="reset"/>
+			</p>
 		</form>
 		
 	</fieldset>
 
 	
-
-	<p>
-	<input type="submit" name="boutonSoumet" value="valider les infos"  />
-    <input type="reset" name="boutonSoumet" value="reset"/>
-	</p>
 	';
 	
 require_once "footer.html";
