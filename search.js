@@ -24,4 +24,12 @@ $(document).ready(function()
 		$.get('searchname.php',{ name : nom}, affiche)
 			.error( function(){ alert("Le fichier PHP est introuvable.") ; })
 	});
+	
+	$("#reset").click(function()
+	{
+	var typ = 'etudiant';
+	
+		$.get('reset.php',{ type : typ}, affiche)
+			.error( function(){ alert("Le fichier PHP est introuvable.") ; })
+	});
 });

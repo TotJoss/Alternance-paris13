@@ -15,5 +15,10 @@
             <input type="text" size="16" maxlength="50" name="nom" id="idt" />
             <input type="button" value="Filtrer" name="nom" id="nom" />
         </td>
+		
+		<td class="reset_div">
+            <h2>RESET :</h2>
+            <input type="button" value="reset" name='reset' id="reset" />
+        </td>
     </tr></table>
 </form>
