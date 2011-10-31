@@ -2,6 +2,14 @@
 
 function dptsearch(){
 	$dpt='\'%'.$_GET['dpt'].'%\'';
+	
+	if (empty($_GET['dpt']))
+	{
+	echo '<SCRIPT language=\"Javascript\"> Il faut rentrer une valeur(\'VIDE\')</SCRIPT> ';
+	}
+	
+	else{
+	
 	$bdd = new PDO('mysql:host=localhost;dbname=alternance', 'root', '');
 	$reponse = $bdd->query("SELECT * FROM etudiant WHERE `codepostal` like $dpt ");
 	$repTab = $reponse->fetchAll();
@@ -32,8 +40,9 @@ function dptsearch(){
 	<td><a href=''>A</a></td>
 	<td><a href=''>D</a></td>
 	</tr>";
+		}
 	}
-}
+	}
 
 }
 dptsearch();
